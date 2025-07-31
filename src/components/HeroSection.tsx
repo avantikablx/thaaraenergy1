@@ -37,9 +37,9 @@ const HeroSection = () => {
                         </a>
 
                         <a href="/contact.html"
-                            className="group relative bg-grey-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl border border-white/100 hover:bg-black transition-all duration-500"
+                            className="group relative bg-grey-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base shadow-xl border border-white/100 hover:bg-white transition-all duration-500"
                         >
-                            <span className="relative z-10 group-hover:text-white">
+                            <span className="relative z-10 group-hover:text-black">
                                 Start Your Project
                             </span>
                         </a>

@@ -96,7 +96,7 @@ const Header = () => {
               <div key={item.name} className="relative group">
                 <a
                   href={item.href}
-                  className={`text-[16px] px-3 py-2 font-medium uppercase tracking-wide transition-all duration-300 rounded-lg flex items-center gap-1 ${isActive(item.href)
+                  className={`text-[14px] px-3 py-2 font-medium uppercase tracking-wide transition-all duration-300 rounded-lg flex items-center gap-1 ${isActive(item.href)
                     ? 'text-white'
                     : 'text-white hover:text-white'
                     }`}
@@ -119,7 +119,7 @@ const Header = () => {
                       <a
                         key={sub.name}
                         href={sub.href}
-                        className="block px-4 py-2 text-2sm text-black hover:text-white hover:bg-black/80  transition-colors duration-200"
+                        className="block px-4 py-2 text-sm text-black hover:text-white hover:bg-black/80  transition-colors duration-200"
                       >
                         {sub.name}
                       </a>
@@ -152,7 +152,7 @@ const Header = () => {
                       item.dropdown &&
                       setDropdownOpen(dropdownOpen === item.name ? null : item.name)
                     }
-                    className={`w-full text-left px-4 py-2 text-base font-semibold uppercase tracking-wide rounded-lg transition-all duration-300 flex items-center justify-between gap-1 ${isActive(item.href)
+                    className={`w-full text-left px-4 py-2 text-sm font-semibold uppercase tracking-wide rounded-lg transition-all duration-300 flex items-center justify-between gap-1 ${isActive(item.href)
                       ? 'text-black'
                       : 'text-black hover:text-black hover:backdrop-blur-2xl hover:bg-black/40'
                       }`}
@@ -170,7 +170,7 @@ const Header = () => {
                         <a
                           key={sub.name}
                           href={sub.href}
-                          className="block px-4 py-2 text-2sm text-black hover:text-white hover:bg-black/60 rounded-lg transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-black hover:text-white hover:bg-black/60 rounded-lg transition-colors duration-200"
 
                           onClick={() => setIsMenuOpen(false)}
                         >
