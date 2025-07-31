@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import SolutionsSection from '../components/SolutionsSection';
+import PartnershipSection from '../components/PartnershipSection';
 import VisionSection from '../components/VisionSection';
 import MissionSection from '../components/MissionSection';
 import IndustrySection from '../components/IndustrySection';
@@ -15,6 +16,7 @@ const Home = () => {
                 {/* <div className="overflow-hidden"> */}
                     <HeroSection />
                     <SolutionsSection />
+                    <PartnershipSection />
                     <VisionSection />
                     <MissionSection />
                     <IndustrySection />
