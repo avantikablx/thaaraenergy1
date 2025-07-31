@@ -16,6 +16,7 @@ const Home = () => {
                 {/* <div className="overflow-hidden"> */}
                     <HeroSection />
                     <SolutionsSection />
+                    <hr className='border-white-50 w-40 h-50'></hr>
                     <PartnershipSection />
                     <VisionSection />
                     <MissionSection />

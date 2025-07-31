@@ -37,7 +37,7 @@ const PartnershipSection = () => {
     ];
 
     return (
-        <section className="py-12 sm:py-16 lg:py-20 bg-black relative w-screen">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-900/80 relative w-screen">
             <div className="w-full px-4 sm:px-6 lg:px-8">
                 {/* Title and Description */}
                
