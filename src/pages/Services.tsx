@@ -18,7 +18,7 @@ const Services = () => {
     {
       title: 'EPCM for Renewable Infrastructure',
       description: 'From engineering to procurement and construction management, we offer turnkey solutions optimized for efficiency, quality, and ROI.',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+      image: 'https://media.licdn.com/dms/image/sync/v2/D4D27AQF87qj3VBMLgw/articleshare-shrink_800/articleshare-shrink_800/0/1712011594663?e=2147483647&v=beta&t=SibHYnNjtwpziuCX-2wNzXE0YN9_SfY5Bi0rBCgAJL8',
       features: [
         'End-to-end execution',
         'Design optimization',
@@ -153,72 +153,69 @@ const Services = () => {
         <div className="absolute inset-0 bg-black/80" />
         <div className="relative z-10 max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-          Our Services
+            Our Services
           </h1>
           <p className="text-white/80 text-lg">
-          Comprehensive renewable energy solutions designed to accelerate your transition 
-          to sustainable and efficient energy systems across the entire value chain.          </p>
+            Comprehensive renewable energy solutions designed to accelerate your transition
+            to sustainable and efficient energy systems across the entire value chain.          </p>
         </div>
       </section>
 
-      {/* Main Services Grid */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
-              Portfolio of Services
+             {/* Main Services Grid */}
+       <section className="bg-white">
+   {mainServices.map((service, index) => (
+     <div key={index}>
+       {/* CARD SECTION */}
+       <div className="flex flex-col lg:flex-row min-h-[80vh]">
+          
+                   {/* Left: Text Content */}
+          <div className="w-full lg:w-1/3 flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-gray-50">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-400 mb-4 sm:mb-6">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4 sm:mb-6">
+              {service.title}
             </h2>
-            <p className="text-xl text-gray-400">
-              We are strategically positioned for sustainable infrastructure development
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+              {service.description}
             </p>
+            <a href="#" className="inline-flex items-center text-black font-semibold text-base sm:text-lg transition-colors group">
+              Explore <span className="ml-2 group-hover:translate-x-1 transition-transform">{'>'}</span>
+            </a>
           </div>
 
-          <div className="space-y-8">
-            {mainServices.map((service, index) => (
-              <div 
-                key={index}
-                className="bg-gray-900 rounded-lg p-8 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-gray-600"
-              >
-                <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                  {/* Image Section */}
-                  <div className="flex-shrink-0">
-                    <div className="w-72 h-52 rounded-xl overflow-hidden shadow-2xl border border-gray-700">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className={`flex-1 text-center lg:text-left lg:px-8`}>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 leading-tight">{service.title}</h3>
-                    {service.highlight && (
-                      <div className="bg-gradient-to-r from-white to-gray-100 text-black px-6 py-3 rounded-full text-sm font-semibold inline-block mb-6 shadow-lg">
-                        {service.highlight}
-                      </div>
-                    )}
-                    <p className="text-gray-300 mb-6 leading-relaxed text-base">{service.description}</p>
-                    
-                    <div className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-4 justify-center lg:justify-start">
-                          <div className="bg-gradient-to-r from-white to-gray-100 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                            <CheckCircle className="h-3 w-3 text-black" />
-                          </div>
-                          <span className="text-gray-200 text-sm font-medium">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+         {/* Right: Image */}
+         <div className="w-full lg:w-2/3 flex items-center justify-center bg-white">
+           <img
+             src={service.image}
+             alt={service.title}
+             className="object-cover h-64 sm:h-80 lg:h-full w-full"
+           />
+         </div>
+       </div>
+
+               {/* BOTTOM DESCRIPTION */}
+        <div className="bg-gray-900 py-8 sm:py-12 px-4 sm:px-6 text-center">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-3 sm:mb-4">
+            {service.title === 'Utility-Scale Solar Parks' && 'Bankable Solar Solutions'}
+            {service.title === 'EPCM for Renewable Infrastructure' && 'Turnkey Excellence'}
+            {service.title === 'Strategic Advisory in Renewables' && 'Expert Guidance'}
+            {service.title === 'EV Charging Infrastructure' && 'Smart Mobility Future'}
+            {service.title === 'Green Hydrogen Initiatives' && 'Next-Gen Energy'}
+          </h3>
+          <p className="text-gray-300 max-w-4xl mx-auto text-sm sm:text-base leading-relaxed px-2 sm:px-0">
+            {service.title === 'Utility-Scale Solar Parks' && 'Delivering 10+ MW projects with proven ROI. Our solar parks generate clean energy at scale while maximizing investor returns through strategic development and operational excellence.'}
+            {service.title === 'EPCM for Renewable Infrastructure' && 'From concept to commissioning, we ensure on-time, on-budget delivery. Our EPCM expertise guarantees quality, efficiency, and long-term performance for your renewable energy investments.'}
+            {service.title === 'Strategic Advisory in Renewables' && 'Navigate complex energy transitions with confidence. Our advisory services help governments and corporations make informed decisions for sustainable, profitable energy futures.'}
+            {service.title === 'EV Charging Infrastructure' && 'Accelerating the electric mobility revolution. We deploy smart, reliable charging networks that support the growing EV ecosystem with cutting-edge technology and seamless user experience.'}
+            {service.title === 'Green Hydrogen Initiatives' && 'Pioneering the future of clean energy. Our green hydrogen solutions drive deep decarbonization across industries, creating sustainable pathways for tomorrow\'s energy needs.'}
+          </p>
         </div>
-      </section>
+     </div>
+   ))}
+ </section>
+
+
 
       {/* Detailed Offerings */}
       <section className="py-24 bg-gray-900">
@@ -232,39 +229,51 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {detailedOfferings.map((offering, index) => (
-              <div 
-                key={index}
-                className="bg-black rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800 hover:border-gray-600"
-              >
-                {/* Icon Header */}
-                <div className="h-32 bg-gray-800 flex items-center justify-center">
-                  <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <offering.icon className="h-12 w-12 text-black" />
-                  </div>
-                </div>
-                
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{offering.title}</h3>
-                  <p className="text-gray-400 font-medium mb-6">{offering.subtitle}</p>
-                  
-                  <div className="space-y-3 mb-8">
-                    {offering.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-300">{feature}</span>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+             {detailedOfferings.map((offering, index) => (
+               <div
+                 key={index}
+                 className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 hover:border-gray-300 transform hover:-translate-y-2"
+               >
+                                   {/* Icon Header with Professional Gradient */}
+                  <div className="relative h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/30"></div>
+                    <div className="relative bg-white/10 backdrop-blur-sm p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-white/20">
+                      <offering.icon className="h-8 w-8 sm:h-12 sm:w-12 lg:h-16 lg:w-16 text-white" />
+                    </div>
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
+                      <div className="bg-white/10 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full">
+                        <span className="text-white text-xs sm:text-sm font-semibold">#{String(index + 1).padStart(2, '0')}</span>
                       </div>
-                    ))}
+                    </div>
                   </div>
 
-                  <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-                    <p className="text-white font-semibold">{offering.benefits}</p>
+                  <div className="p-4 sm:p-6 lg:p-8">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">{offering.title}</h3>
+                      <div className="w-8 sm:w-12 h-1 bg-gradient-to-r from-gray-600 to-gray-800 rounded-full"></div>
+                    </div>
+                    <p className="text-gray-600 font-medium mb-4 sm:mb-6 text-base sm:text-lg">{offering.subtitle}</p>
+
+                    <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                      {offering.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start space-x-2 sm:space-x-3 group/item">
+                          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gray-600 rounded-full mt-1.5 sm:mt-2 flex-shrink-0 group-hover/item:scale-125 transition-transform"></div>
+                          <span className="text-gray-700 text-sm sm:text-base leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
+                      <div className="flex items-center space-x-2 sm:space-x-3">
+                        <div className="w-2 sm:w-3 h-2 sm:h-3 bg-gray-600 rounded-full"></div>
+                        <p className="text-gray-900 font-bold text-base sm:text-lg">{offering.benefits}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+               </div>
+             ))}
+           </div>
         </div>
       </section>
 
@@ -280,17 +289,17 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
             {subsidyPrograms.map((category, index) => (
-              <div key={index} className="bg-gray-900 rounded-lg p-10 border border-gray-800">
-                <h3 className="text-2xl font-bold text-white mb-8">{category.category}</h3>
-                <div className="space-y-4">
+              <div key={index} className="bg-gray-900 rounded-lg p-6 sm:p-8 lg:p-10 border border-gray-800">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">{category.category}</h3>
+                <div className="space-y-3 sm:space-y-4">
                   {category.programs.map((program, programIndex) => (
-                    <div key={programIndex} className="flex items-start space-x-3">
-                      <div className="bg-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <CheckCircle className="h-4 w-4 text-black" />
+                    <div key={programIndex} className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="bg-white w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
+                        <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-black" />
                       </div>
-                      <span className="text-gray-300">{program}</span>
+                      <span className="text-gray-300 text-sm sm:text-base">{program}</span>
                     </div>
                   ))}
                 </div>
@@ -333,53 +342,53 @@ const Services = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {[
-              { 
-                title: 'Proven Track Record', 
+              {
+                title: 'Proven Track Record',
                 description: 'Proven track record across 10 MW+ of installations with successful project delivery.',
                 icon: Award
               },
-              { 
-                title: 'Expert Team', 
+              {
+                title: 'Expert Team',
                 description: 'Team of solar engineers, policy experts, and project managers with deep industry knowledge.',
                 icon: Users
               },
-              { 
-                title: 'Best-in-Class Components', 
+              {
+                title: 'Best-in-Class Components',
                 description: 'Best-in-class components and warranties ensuring long-term performance and reliability.',
                 icon: CheckCircle
               },
-              { 
-                title: 'Client-First Approach', 
+              {
+                title: 'Client-First Approach',
                 description: 'Client-first approach with dedicated post-installation support and maintenance services.',
                 icon: Target
               },
-              { 
-                title: 'Reliable & Scalable', 
+              {
+                title: 'Reliable & Scalable',
                 description: 'Reliable, scalable, and profitable solutions designed for long-term success.',
                 icon: TrendingUp
               },
-              { 
-                title: 'Full-Service Provider', 
+              {
+                title: 'Full-Service Provider',
                 description: 'Complete end-to-end solutions from planning and design to installation and maintenance.',
                 icon: Settings
               }
             ].map((benefit, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-black rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800 hover:border-gray-600"
               >
                 {/* Icon Header */}
-                <div className="h-32 bg-gray-800 flex items-center justify-center">
-                  <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center shadow-lg">
-                    <benefit.icon className="h-8 w-8 text-black" />
+                <div className="h-24 sm:h-28 lg:h-32 bg-gray-800 flex items-center justify-center">
+                  <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center shadow-lg">
+                    <benefit.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                   </div>
                 </div>
-                
-                <div className="p-8 text-center">
-                  <h3 className="text-xl font-semibold text-white mb-4">{benefit.title}</h3>
-                  <p className="text-gray-400">{benefit.description}</p>
+
+                <div className="p-4 sm:p-6 lg:p-8 text-center">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">{benefit.title}</h3>
+                  <p className="text-gray-400 text-sm sm:text-base">{benefit.description}</p>
                 </div>
               </div>
             ))}
@@ -388,18 +397,18 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-black">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8">
             Ready to Transform Your Energy Future?
           </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Contact us today to discuss your renewable energy requirements and discover how we can help 
+          <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0">
+            Contact us today to discuss your renewable energy requirements and discover how we can help
             you achieve your sustainability and financial goals.
           </p>
-          <button className="bg-white text-black px-12 py-6 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center shadow-lg">
+          <button className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center shadow-lg">
             Get Started Today
-            <ArrowRight className="ml-3 h-6 w-6" />
+            <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
           </button>
         </div>
       </section>

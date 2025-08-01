@@ -36,22 +36,22 @@ const IndustrySection = () => {
         <section className="pt-8 sm:pt-20 md:pt-24 lg:pt-28 sm:pb-10 md:pb-12 lg:pb-12 bg-black text-white relative overflow-hidden w-screen">
             <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Heading */}
-                <div className="mb-8 sm:mb-10 md:mb-12 text-left mt-2 sm:mt-4">
+                <div className="text-left">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">
                         Industry Opportunity
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl text-white max-w-5xl leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-white max-w-5xl leading-relaxed mb-8">
                         India's renewable energy sector presents unprecedented growth opportunities.
                     </p>
                 </div>
 
-                <div className="relative mb-12 sm:mb-14 md:mb-16 w-full max-w-[1600px] mx-auto">
+                <div className="relative w-full max-w-[1400px] ">
                     {/* Carousel Section */}
-                    <div className="relative mb-12 sm:mb-14 md:mb-16 w-full px-2 sm:px-4">
+                    <div className="relative w-full px-2 sm:px-4">
                         {/* Navigation Buttons - Hidden on mobile, visible on larger screens */}
                         <button
                             ref={prevRef}
-                            className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-6 xl:-left-10 z-30 hover:scale-110 transition-transform duration-200"
+                            className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-6 xl:-left-4 z-30 hover:scale-110 transition-transform duration-200"
                         >
                             <span className="inline-flex items-center justify-center w-8 h-8 xl:w-10 xl:h-10 rounded-full text-white hover:text-gray-300 transition-colors">
                                 <svg className="w-6 h-6 xl:w-8 xl:h-8" fill="none" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ const IndustrySection = () => {
 
                         <button
                             ref={nextRef}
-                            className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-6 xl:-right-10 z-30 hover:scale-110 transition-transform duration-200"
+                            className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-6 xl:-right-4 z-30 hover:scale-110 transition-transform duration-200"
                         >
                             <span className="inline-flex items-center justify-center w-8 h-8 xl:w-10 xl:h-10 rounded-full text-white hover:text-gray-300 transition-colors">
                                 <svg className="w-6 h-6 xl:w-8 xl:h-8" fill="none" viewBox="0 0 24 24">
@@ -113,19 +113,19 @@ const IndustrySection = () => {
                                     centeredSlides: false
                                 },
                                 768: {
-                                    slidesPerView: 2.5,
+                                    slidesPerView: 2.2,
                                     spaceBetween: 24
                                 },
                                 1024: {
-                                    slidesPerView: 3,
+                                    slidesPerView: 2.5,
                                     spaceBetween: 24
                                 },
                                 1280: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 3,
                                     spaceBetween: 24
                                 },
                                 1536: {
-                                    slidesPerView: 4,
+                                    slidesPerView: 3.5,
                                     spaceBetween: 32
                                 }
                             }}
@@ -146,11 +146,11 @@ const IndustrySection = () => {
                         >
                             {carouselData.map((item, index) => (
                                 <SwiperSlide key={index} className="flex">
-                                    <div className="bg-white text-black shadow-lg hover:shadow-xl transition-shadow duration-300 h-[280px] sm:h-[300px] md:h-[320px] w-full flex flex-col rounded-lg md:rounded-xl overflow-hidden">
+                                    <div className="bg-white text-black shadow-lg hover:shadow-xl transition-shadow duration-300 h-[240px] sm:h-[260px] md:h-[280px] w-full flex flex-col rounded-lg md:rounded-xl overflow-hidden">
                                         <img
                                             src={item.image}
                                             alt={`${item.text} - Slide ${index + 1}`}
-                                            className="w-full h-[200px] sm:h-[220px] md:h-[240px] object-cover"
+                                            className="w-full h-[160px] sm:h-[180px] md:h-[200px] object-cover"
                                             loading="lazy"
                                         />
                                         <div className="p-3 sm:p-4 text-center font-semibold flex-1 flex items-center justify-center text-sm sm:text-base">

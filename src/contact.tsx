@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Contact from './pages/Contact';
 import './index.css';
 
-function ContactApp() {
+export function ContactApp() {
   return (
     <div className="min-h-screen bg-black">
       <Header />

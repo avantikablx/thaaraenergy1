@@ -2,8 +2,8 @@ import { Mail, MapPin, Leaf, Sparkles } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden text-white bg-black w-screen">
-      {/* Subtle Solar Grid Pattern */}
+    <footer className="relative overflow-hidden text-white bg-black w-full">
+    {/* Subtle Solar Grid Pattern */}
       <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(#222222_0.5px,transparent_0.5px)] [background-size:20px_20px] opacity-20" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-12">

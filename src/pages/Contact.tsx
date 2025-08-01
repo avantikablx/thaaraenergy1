@@ -80,10 +80,10 @@ const Contact = () => {
         <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-8">
             Get In Touch
           </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0">
             Ready to transform your energy future? Contact us to discuss your clean energy
             and sustainability requirements. We're here to help you achieve your goals.
           </p>
@@ -106,20 +106,20 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="grid gap-6">
+              <div className="grid gap-4 sm:gap-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
                     className="bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors duration-300"
                   >
-                    <div className="flex items-start space-x-4 p-8">
-                      <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="h-8 w-8 text-black" />
+                    <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 lg:p-8">
+                      <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <info.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-3">{info.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">{info.title}</h3>
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-400 font-medium">
+                          <p key={detailIndex} className="text-gray-400 font-medium text-sm sm:text-base">
                             {info.title === 'Email' ? (
                               <a 
                                 href={`mailto:${detail}`}
@@ -166,11 +166,11 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">
               Our Location
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-400 px-2 sm:px-0">
               Headquartered in Hyderabad, India, serving emerging markets across India and Europe.
             </p>
           </div>
@@ -197,28 +197,28 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="p-12 text-center">
-              <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-6 sm:p-8 lg:p-12 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 <div className="group">
-                  <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Globe className="h-8 w-8 text-black" />
+                  <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Globe className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Global Reach</h4>
-                  <p className="text-gray-400">Serving India & Europe</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Global Reach</h4>
+                  <p className="text-gray-400 text-sm sm:text-base">Serving India & Europe</p>
                 </div>
                 <div className="group">
-                  <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Wind className="h-8 w-8 text-black" />
+                  <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Wind className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Clean Energy Hub</h4>
-                  <p className="text-gray-400">Renewable Energy Focus</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Clean Energy Hub</h4>
+                  <p className="text-gray-400 text-sm sm:text-base">Renewable Energy Focus</p>
                 </div>
                 <div className="group">
-                  <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Leaf className="h-8 w-8 text-black" />
+                  <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Leaf className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">Sustainable Future</h4>
-                  <p className="text-gray-400">Green Technology Innovation</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Sustainable Future</h4>
+                  <p className="text-gray-400 text-sm sm:text-base">Green Technology Innovation</p>
                 </div>
               </div>
             </div>

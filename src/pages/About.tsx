@@ -99,101 +99,48 @@ const About = () => {
                   high-impact solutions across the renewable energy value chain.
                 </p>
                 <p>
-                  Thaara Energy stands at the intersection of innovation, sustainability, and investment opportunity. 
-                  With a focus on innovation, sustainability, and impact, we are building the foundations of 
-                  tomorrow's low-carbon economy.
+                  Our mission is to drive the adoption of clean energy technologies through scalable, 
+                  commercially viable projects that deliver measurable environmental and economic impact. 
+                  We believe that sustainable energy solutions should be accessible, reliable, and profitable 
+                  for all stakeholders.
                 </p>
                 <p>
-                  At Thaara Energy, our mission is to empower communities, industries, and nations through resilient, 
-                  clean energy solutions. We partner with governments, private enterprises, and institutional investors 
-                  to develop future-ready infrastructure that is resilient, efficient, and environmentally conscious.
+                  With a focus on solar energy, energy storage, and electric mobility infrastructure, 
+                  we work across the entire value chain — from project development and engineering to 
+                  construction, commissioning, and long-term operations and maintenance.
                 </p>
               </div>
             </div>
-            <div className="bg-gray-900 rounded-lg p-8 border border-gray-800">
+            <div className="bg-black rounded-lg p-8 border border-gray-800">
               <img 
-                src="/Thaara energy background.webp" 
-                alt="Solar Park with Green Landscape" 
-                className="w-full h-80 object-cover rounded-lg"
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Solar Installation" 
+                className="w-full h-96 object-cover rounded-lg"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Core Values */}
       <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-black rounded-lg p-10 shadow-lg border border-gray-800">
-              <div className="flex items-center mb-8">
-                <Eye className="h-10 w-10 text-white mr-4" />
-                <h2 className="text-3xl font-bold text-white">Our Vision</h2>
-              </div>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                To be a leading renewable energy player in India, creating resilient ecosystems that empower 
-                communities, future-proof industries, and drive inclusive economic growth across emerging markets.
-              </p>
-            </div>
-
-            <div className="bg-black rounded-lg p-10 shadow-lg border border-gray-800">
-              <div className="flex items-center mb-8">
-                <Target className="h-10 w-10 text-white mr-4" />
-                <h2 className="text-3xl font-bold text-white">Our Mission</h2>
-              </div>
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                Drive clean energy adoption through innovative and efficient solar solutions. At Thaara Energy, 
-                our mission is to accelerate the transition to clean, efficient, and scalable energy solutions by:
-              </p>
-              <ul className="text-gray-400 space-y-3">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Developing innovative renewable energy projects that reduce carbon footprints
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Building robust electric mobility infrastructure
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Delivering sustainable industrial solutions
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Collaborating with strategic partners for impactful clean-tech initiatives
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Championing responsible entrepreneurship where profitability and sustainability co-exist
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
               Our Core Values
             </h2>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto">
-              The principles that guide our decision-making and drive our commitment to sustainable progress.
+              The principles that guide our decisions and shape our relationships with clients, partners, and communities.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 md:justify-items-center">
             {values.map((value, index) => (
-              <div 
-                key={index}
-                className="bg-gray-900 rounded-lg p-8 hover:bg-gray-800 transition-all duration-300 border border-gray-800 hover:border-gray-600"
-              >
+              <div key={index} className={`bg-black rounded-lg p-8 border border-gray-800 hover:border-gray-600 transition-colors duration-300 md:max-w-md ${values.length % 2 === 1 && index === values.length - 1 ? 'md:col-span-2' : ''}`}>
                 <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                   <value.icon className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">{value.title}</h3>
                 <p className="text-gray-400 leading-relaxed">{value.description}</p>
               </div>
             ))}
@@ -202,27 +149,32 @@ const About = () => {
       </section>
 
       {/* Founder Section */}
-      <section className="py-24 bg-gray-900">
+      <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="bg-black rounded-lg p-8 border border-gray-800">
+              <img 
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Ponnam Rajeev Chandra - Founder" 
+                className="w-full h-96 object-cover rounded-lg"
+              />
+            </div>
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
-                About the Founder
+                Our Founder
               </h2>
-              <h3 className="text-2xl font-semibold text-white mb-4">
-                Ponnam Rajeev Chandra
-              </h3>
-              <p className="text-lg text-gray-300 mb-6 font-medium">
-                Founder & Managing Director, Thaara Energy
-              </p>
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  A lawyer by profession and a sustainability enthusiast by conviction, Ponnam Rajeev Chandra 
-                  has always believed that progressive businesses must lead the way toward a cleaner, more resilient future.
+                  Ponnam Rajeev Chandra, the founder of Thaara Energy, brings a unique blend of 
+                  entrepreneurial vision and deep understanding of the renewable energy sector. 
+                  His journey in clean energy began with a recognition of the immense potential 
+                  for sustainable development in emerging markets.
                 </p>
                 <p>
-                  Based in Hyderabad, India, Rajeev brings together the precision of legal acumen with the vision 
-                  of a responsible entrepreneur. With years of experience in navigating complex regulatory frameworks 
+                  With a background in business strategy and renewable energy policy, Rajeev has 
+                  developed a comprehensive understanding of the challenges and opportunities in 
+                  the clean energy transition. His approach combines technical expertise with the 
+                  practical insights of a responsible entrepreneur. With years of experience in navigating complex regulatory frameworks 
                   and advising businesses on corporate strategy, his journey into clean energy was driven by a 
                   deeper personal commitment to build enterprises that create measurable, lasting impact.
                 </p>
@@ -233,13 +185,6 @@ const About = () => {
                   clean energy solutions that are not only environmentally responsible but also economically transformative.
                 </p>
               </div>
-            </div>
-            <div className="bg-black rounded-lg p-8 border border-gray-800">
-              <img 
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Ponnam Rajeev Chandra - Founder" 
-                className="w-full h-96 object-cover rounded-lg"
-              />
             </div>
           </div>
         </div>

@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scrollbars */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure proper layout containment */
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Transparent header styles */
+.header-transparent {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+}
+
+.header-transparent .bg-black\/30 {
+  background: transparent !important;
+}
+
+.header-transparent .backdrop-blur-6xl {
+  backdrop-filter: none !important;
+}
+
 /* @keyframes shimmer {
     0% { background-position: -100% 0; }
     100% { background-position: 100% 0; }

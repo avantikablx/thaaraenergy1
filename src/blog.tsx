@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Blog from './pages/Blog';
 import './index.css';
 
-function BlogApp() {
+export function BlogApp() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-black">

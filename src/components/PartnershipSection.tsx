@@ -1,4 +1,4 @@
-import { Handshake, Globe, Sparkles, ExternalLink } from 'lucide-react';
+// Removed unused imports: Handshake, Globe, Sparkles, ExternalLink
 
 const PartnershipSection = () => {
     const partners = [
@@ -38,10 +38,9 @@ const PartnershipSection = () => {
     ];
 
     return (
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-900/80 relative w-screen">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-900 relative w-screen">
             <div className="w-full px-4 sm:px-6 lg:px-8">
-                {/* Title and Description */}
-
+                {/* Title and Description - Left Aligned */}
                 <div className="mb-8 sm:mb-10 md:mb-12 text-left mt-2 sm:mt-4">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">
                         Our Partners
@@ -51,11 +50,11 @@ const PartnershipSection = () => {
                     </p>
                 </div>
 
-                {/* Partners Grid */}
+                {/* Partners Grid - Centered */}
                 <div className="py-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                         {partners.map((partner, index) => (
-                            <div key={index} className={`flex flex-col items-start gap-3 sm:gap-4 group ${
+                            <div key={index} className={`flex flex-col items-center text-center gap-3 sm:gap-4 group ${
                                 index < partners.length - 1 ? 'border-r border-gray-500 pr-6 sm:pr-8' : ''
                             }`}>
                                 {/* Logo with Link */}
@@ -96,7 +95,7 @@ const PartnershipSection = () => {
                                             {partner.name}
                                         </p>
                                     </a>
-                                    <p className="text-sm sm:text-base text-white leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">{partner.description}</p>
+                                    <p className="text-sm sm:text-base text-white leading-relaxed">{partner.description}</p>
                                 </div>
                             </div>
                         ))}

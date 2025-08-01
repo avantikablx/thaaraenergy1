@@ -113,7 +113,7 @@ const Industries = () => {
     <div className="bg-black text-white">
       {/* Hero Section */}
 
-      
+
       <section
         className="relative min-h-[60vh] flex items-center justify-center text-center bg-cover bg-center"
         style={{
@@ -124,48 +124,71 @@ const Industries = () => {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-          Industries We Serve
+            Industries We Serve
           </h1>
           <p className="text-white/80 text-lg">
-          Delivering tailored renewable energy solutions across diverse industry sectors 
-          to drive efficiency, reduce costs, and accelerate the clean energy transition.
+            Delivering tailored renewable energy solutions across diverse industry sectors
+            to drive efficiency, reduce costs, and accelerate the clean energy transition.
           </p>
         </div>
       </section>
-    
-        
+
+
       {/* Industries Grid */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800 hover:border-gray-600"
+                className="group relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border border-gray-800 hover:border-gray-600 cursor-pointer transform hover:scale-105"
               >
-                <div className="relative h-48">
-                  <img src={industry.image} alt={industry.title} className="w-full h-full object-cover opacity-60" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center">
-                      <industry.icon className="h-6 w-6 text-black" />
-                    </div>
+                {/* Card Image with Icon */}
+                <div className="relative h-80">
+                  <img
+                    src={industry.image}
+                    alt={industry.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+
+
+                  {/* Title */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-center">
+                    <h3 className="text-xl font-bold text-white drop-shadow-lg text-center">{industry.title}</h3>
                   </div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-white mb-4">{industry.title}</h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">{industry.description}</p>
-                  <div className="space-y-2 mb-6">
-                    <h4 className="font-semibold text-white mb-3">Key Solutions:</h4>
-                    {industry.solutions.map((solution, solutionIndex) => (
-                      <div key={solutionIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span className="text-gray-300 text-sm">{solution}</span>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    {/* Description */}
+                    <p className="text-gray-300 mb-6 leading-relaxed text-sm">{industry.description}</p>
+
+                    {/* Solutions */}
+                    <div className="space-y-3 mb-6">
+                      <h4 className="font-semibold text-white text-sm uppercase tracking-wide">Key Solutions:</h4>
+                      <div className="space-y-2">
+                        {industry.solutions.slice(0, 3).map((solution, solutionIndex) => (
+                          <div key={solutionIndex} className="flex items-center space-x-2">
+                            <div className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-300 text-xs">{solution}</span>
+                          </div>
+                        ))}
+                        {industry.solutions.length > 3 && (
+                          <div className="flex items-center space-x-2">
+                            <div className="w-1.5 h-1.5 bg-white rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-300 text-xs">+{industry.solutions.length - 3} more solutions</span>
+                          </div>
+                        )}
                       </div>
-                    ))}
-                  </div>
-                  <div className="bg-black rounded-lg p-4 border border-gray-800">
-                    <p className="text-white font-semibold text-sm">{industry.benefits}</p>
+                    </div>
+
+                    {/* Benefits */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                      <p className="text-white font-semibold text-xs leading-relaxed">{industry.benefits}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -186,24 +209,24 @@ const Industries = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {marketOpportunities.map((opportunity, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-black rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-800 hover:border-gray-600"
               >
                 <div className="h-2 bg-white"></div>
-                
-                <div className="p-8">
-                  <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6">
-                    <opportunity.icon className="h-8 w-8 text-black" />
+
+                <div className="p-4 sm:p-6 lg:p-8">
+                  <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <opportunity.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">{opportunity.sector}</h3>
-                  <div className="text-3xl font-bold text-white mb-6">{opportunity.potential}</div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">{opportunity.sector}</h3>
+                  <div className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">{opportunity.potential}</div>
                   <div className="space-y-2">
                     {opportunity.drivers.map((driver, driverIndex) => (
-                      <div key={driverIndex} className="text-sm text-gray-400 flex items-center">
-                        <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                      <div key={driverIndex} className="text-xs sm:text-sm text-gray-400 flex items-center">
+                        <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full mr-2"></div>
                         {driver}
                       </div>
                     ))}
@@ -223,50 +246,63 @@ const Industries = () => {
               Success Stories
             </h2>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto">
-              Real-world examples of how we've helped businesses across different industries 
+              Real-world examples of how we've helped businesses across different industries
               achieve their sustainability and cost reduction goals.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {caseStudies.map((study, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800 hover:border-gray-600"
+                className="group relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border border-gray-800 hover:border-gray-600 cursor-pointer transform hover:scale-105"
               >
-                {/* Image Header */}
-                <div className="relative h-48">
-                  <img 
-                    src={study.image} 
+                {/* Card Image */}
+                <div className="relative h-80">
+                  <img
+                    src={study.image}
                     alt={study.client}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+                  {/* Industry Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white text-black px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-white/90 backdrop-blur-sm text-black px-3 py-1 rounded-full text-sm font-medium shadow-lg">
                       {study.industry}
                     </span>
                   </div>
+
+                  {/* Title */}
+                  <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 flex items-center justify-center">
+                    <h3 className="text-xl font-bold text-white drop-shadow-lg text-center">{study.client}</h3>
+                  </div>
                 </div>
-                
-                <div className="p-8 text-white">
-                  <h3 className="text-xl font-bold mb-6">{study.client}</h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-300 mb-2">Challenge:</h4>
-                      <p className="text-gray-400 text-sm">{study.challenge}</p>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    {/* Challenge */}
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-white text-sm uppercase tracking-wide mb-2">Challenge:</h4>
+                      <p className="text-gray-300 text-xs leading-relaxed">{study.challenge}</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-300 mb-2">Solution:</h4>
-                      <p className="text-gray-400 text-sm">{study.solution}</p>
+
+                    {/* Solution */}
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-white text-sm uppercase tracking-wide mb-2">Solution:</h4>
+                      <p className="text-gray-300 text-xs leading-relaxed">{study.solution}</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-300 mb-2">Result:</h4>
-                      <p className="text-white text-sm font-medium">{study.result}</p>
+
+                    {/* Result */}
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-white text-sm uppercase tracking-wide mb-2">Result:</h4>
+                      <p className="text-white text-xs font-medium">{study.result}</p>
                     </div>
-                    <div className="bg-black rounded-lg p-4 border border-gray-800">
-                      <p className="text-white font-semibold text-sm">{study.savings}</p>
+
+                    {/* Savings */}
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                      <p className="text-white font-semibold text-xs leading-relaxed">{study.savings}</p>
                     </div>
                   </div>
                 </div>
@@ -288,35 +324,35 @@ const Industries = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { 
-                title: 'Industry Expertise', 
+              {
+                title: 'Industry Expertise',
                 description: 'Deep understanding of sector-specific energy challenges and regulatory requirements.',
                 number: '01'
               },
-              { 
-                title: 'Proven Track Record', 
+              {
+                title: 'Proven Track Record',
                 description: 'Successful project delivery across 10+ MW of installations with guaranteed performance.',
                 number: '02'
               },
-              { 
-                title: 'End-to-End Solutions', 
+              {
+                title: 'End-to-End Solutions',
                 description: 'Complete project lifecycle management from planning and design to installation and maintenance.',
                 number: '03'
               },
-              { 
-                title: 'Subsidy Optimization', 
+              {
+                title: 'Subsidy Optimization',
                 description: 'Maximize project returns through comprehensive subsidy navigation and documentation support.',
                 number: '04'
               }
             ].map((benefit, index) => (
               <div key={index} className="text-center">
-                <div className="bg-white text-black w-20 h-20 rounded-lg flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                <div className="bg-white text-black w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-lg flex items-center justify-center text-xl sm:text-2xl font-bold mx-auto mb-4 sm:mb-6">
                   {benefit.number}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4">{benefit.title}</h3>
-                <p className="text-gray-400">{benefit.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">{benefit.title}</h3>
+                <p className="text-gray-400 text-sm sm:text-base">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -324,21 +360,21 @@ const Industries = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-black">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8">
             Ready to Transform Your Industry with Clean Energy?
           </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Contact us today to discuss your specific industry requirements and discover how we can help 
+          <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0">
+            Contact us today to discuss your specific industry requirements and discover how we can help
             you achieve significant cost savings while meeting your sustainability goals.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-white text-black px-12 py-6 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <button className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center shadow-lg">
               Get Industry-Specific Quote
-              <Battery className="ml-3 h-6 w-6" />
+              <Battery className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
             </button>
-            <button className="border-2 border-white text-white px-12 py-6 rounded-lg font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300">
+            <button className="border-2 border-white text-white px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-300">
               Download Case Studies
             </button>
           </div>

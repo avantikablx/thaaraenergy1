@@ -1,36 +1,36 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-const faqs = [
-  {
-    question: 'What services do you offer in renewable energy?',
-    answer:
-      'We offer complete solar solutions including rooftop and ground-mount installations, energy storage systems, EV charging integration, and performance monitoring.',
-  },
-  {
-    question: 'Do you help with government subsidies?',
-    answer:
-      'Yes. We assist in identifying, applying, and claiming applicable state and national subsidies for eligible renewable energy projects.',
-  },
-  {
-    question: 'How long does a solar installation take?',
-    answer:
-      'Typical residential installations take 2-4 weeks from contract to commissioning. Commercial timelines vary based on scale and regulatory approvals.',
-  },
-  {
-    question: 'Do you provide maintenance and support?',
-    answer:
-      'Absolutely. We offer AMC (Annual Maintenance Contracts), real-time monitoring, and dedicated technical support for all systems we install.',
-  },
-  {
-    question: 'Can I integrate battery storage later?',
-    answer:
-      'Yes. Our hybrid-ready systems allow future integration of battery storage, giving you flexibility as your energy needs evolve.',
-  },
-];
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: 'What services does Thaara Energy offer?',
+      answer:
+        'We offer complete solar solutions including rooftop and ground-mount installations, energy storage systems, EV charging integration, and performance monitoring.',
+    },
+    {
+      question: 'Do you help with government subsidies?',
+      answer:
+        'Yes. We assist in identifying, applying, and claiming applicable state and national subsidies for eligible renewable energy projects.',
+    },
+    {
+      question: 'How long does a solar installation take?',
+      answer:
+        'Typical residential installations take 2-4 weeks from contract to commissioning. Commercial timelines vary based on scale and regulatory approvals.',
+    },
+    {
+      question: 'Do you provide maintenance and support?',
+      answer:
+        'Absolutely. We offer AMC (Annual Maintenance Contracts), real-time monitoring, and dedicated technical support for all systems we install.',
+    },
+    {
+      question: 'Can I integrate battery storage later?',
+      answer:
+        'Yes. Our hybrid-ready systems allow future integration of battery storage, giving you flexibility as your energy needs evolve.',
+    },
+  ];
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(index === activeIndex ? null : index);

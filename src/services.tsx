@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Services from './pages/Services';
 import './index.css';
 
-function ServicesApp() {
+export function ServicesApp() {
   return (
     <div className="min-h-screen bg-black">
       <Header />

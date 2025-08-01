@@ -1,11 +1,12 @@
+import Header from './Header';
 
 const HeroSection = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-screen">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
             {/* Background Video */}
-            <div className="absolute inset-0 w-screen h-full overflow-hidden">
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <video
-                    className="absolute inset-0 w-screen h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                     src="mp123.mp4"
                     autoPlay
                     loop
@@ -13,6 +14,11 @@ const HeroSection = () => {
                     playsInline
                     style={{ pointerEvents: 'none' }}
                 />
+            </div>
+
+            {/* Transparent Header */}
+            <div className="absolute top-0 left-0 right-0 z-50">
+                <Header />
             </div>
 
             {/* Content */}

@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const CTASection = () => {
     return (
+        
         <section className="pt-2 sm:pt-10 md:pt-12 lg:pt-8 pb-8 sm:pb-20 md:pb-24 lg:pb-28 bg-black text-white relative overflow-hidden w-screen">
             <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 lg:gap-12 items-center w-full">
