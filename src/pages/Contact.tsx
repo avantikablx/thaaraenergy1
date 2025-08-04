@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, Globe, Sparkles, Leaf, Wind } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Globe, Sparkles, Leaf, Wind, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,9 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -18,19 +21,51 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Using Formspree to send emails directly to Gmail
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('service', formData.service);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('_subject', `New Contact Form Submission - ${formData.name}`);
+
+      const response = await fetch('https://formspree.io/f/mjkoenjd', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -93,33 +128,175 @@ const Contact = () => {
       {/* Contact Section */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Contact Form */}
+            <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-white p-3 rounded-lg">
+                  <MessageSquare className="h-6 w-6 text-black" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white">Send us a Message</h3>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Enter your company name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      placeholder="Enter your phone number"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
+                    Service Interest
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  >
+                    <option value="">Select a service</option>
+                    {services.map((service, index) => (
+                      <option key={index} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    placeholder="Tell us about your project or requirements..."
+                  />
+                </div>
+
+                {submitStatus === 'success' && (
+                  <div className="bg-green-900/20 border border-green-500 text-green-400 px-4 py-3 rounded-lg">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-900/20 border border-red-500 text-red-400 px-4 py-3 rounded-lg">
+                    Sorry, there was an error sending your message. Please try again.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-white text-black font-semibold py-4 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5" />
+                      <span>Send Message</span>
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+
             {/* Contact Information */}
-            <div className="space-y-8 max-w-2xl">
+            <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-8">
+                <h3 className="text-2xl font-semibold text-white mb-6">
                   Contact Information
-                </h2>
+                </h3>
                 <p className="text-gray-400 mb-8 text-lg leading-relaxed">
                   We're here to help you with your clean energy and sustainability needs.
                   Reach out to us through any of the following channels.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:gap-6">
+              <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
                     className="bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors duration-300"
                   >
-                    <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 lg:p-8">
-                      <div className="bg-white w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-black" />
+                    <div className="flex items-start space-x-4 p-6">
+                      <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <info.icon className="h-6 w-6 text-black" />
                       </div>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">{info.title}</h3>
+                        <h4 className="text-lg font-semibold text-white mb-2">{info.title}</h4>
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-400 font-medium text-sm sm:text-base">
+                          <p key={detailIndex} className="text-gray-400 font-medium text-sm">
                             {info.title === 'Email' ? (
                               <a 
                                 href={`mailto:${detail}`}
@@ -146,12 +323,12 @@ const Contact = () => {
               </div>
 
               {/* Quick Response Promise */}
-              <div className="bg-gray-900 rounded-lg p-8 border border-gray-800">
+              <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="bg-white p-3 rounded-lg">
-                    <Sparkles className="h-6 w-6 text-black" />
+                  <div className="bg-white p-2 rounded-lg">
+                    <Clock className="h-5 w-5 text-black" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">Quick Response</h3>
+                  <h4 className="text-lg font-semibold text-white">Quick Response</h4>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
                   We typically respond to all inquiries within 24 hours during business days.
