@@ -36,7 +36,7 @@ const Contact = () => {
       formDataToSend.append('service', formData.service);
       formDataToSend.append('message', formData.message);
       formDataToSend.append('_replyto', formData.email);
-      formDataToSend.append('_subject', `New Contact Form Submission - ${formData.name}`);
+      formDataToSend.append('_subject', `ThaaraEnergy.com Enquiry - ${formData.name}`);
 
       const response = await fetch('https://formspree.io/f/mjkoenjd', {
         method: 'POST',
@@ -126,20 +126,20 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-black">
+      <section className="py-16 sm:py-20 lg:py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             {/* Contact Form */}
-            <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800">
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-white p-3 rounded-lg">
-                  <MessageSquare className="h-6 w-6 text-black" />
+            <div className="bg-gray-900 rounded-2xl p-6 sm:p-8 border border-gray-800">
+              <div className="flex items-center space-x-3 mb-6 sm:mb-8">
+                <div className="bg-white p-2 sm:p-3 rounded-lg">
+                  <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                 </div>
-                <h3 className="text-2xl font-semibold text-white">Send us a Message</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-white">Send us a Message</h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                       Full Name *
@@ -172,7 +172,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                       Company
@@ -254,7 +254,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-white text-black font-semibold py-4 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  className="w-full bg-white text-black font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:bg-gray-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -272,29 +272,29 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">
                   Contact Information
                 </h3>
-                <p className="text-gray-400 mb-8 text-lg leading-relaxed">
+                <p className="text-gray-400 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
                   We're here to help you with your clean energy and sustainability needs.
                   Reach out to us through any of the following channels.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
                     className="bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors duration-300"
                   >
-                    <div className="flex items-start space-x-4 p-6">
-                      <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="h-6 w-6 text-black" />
+                    <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6">
+                      <div className="bg-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-2">{info.title}</h4>
+                        <h4 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{info.title}</h4>
                         {info.details.map((detail, detailIndex) => (
                           <p key={detailIndex} className="text-gray-400 font-medium text-sm">
                             {info.title === 'Email' ? (
@@ -323,12 +323,12 @@ const Contact = () => {
               </div>
 
               {/* Quick Response Promise */}
-              <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <div className="flex items-center space-x-3 mb-4">
+              <div className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-800">
+                <div className="flex items-center space-x-3 mb-3 sm:mb-4">
                   <div className="bg-white p-2 rounded-lg">
-                    <Clock className="h-5 w-5 text-black" />
+                    <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-black" />
                   </div>
-                  <h4 className="text-lg font-semibold text-white">Quick Response</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-white">Quick Response</h4>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
                   We typically respond to all inquiries within 24 hours during business days.
@@ -341,9 +341,9 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 bg-gray-900">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">
               Our Location
             </h2>
