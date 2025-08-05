@@ -218,7 +218,7 @@ const Services = () => {
 
 
       {/* Detailed Offerings */}
-      <section className="py-24 bg-gray-900">
+      {/* <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
@@ -235,7 +235,6 @@ const Services = () => {
                  key={index}
                  className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 hover:border-gray-300 transform hover:-translate-y-2"
                >
-                                   {/* Icon Header with Professional Gradient */}
                   <div className="relative h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center">
                     <div className="absolute inset-0 bg-black/30"></div>
                     <div className="relative bg-white/10 backdrop-blur-sm p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-white/20">
@@ -275,10 +274,10 @@ const Services = () => {
              ))}
            </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Subsidy Strategy */}
-      <section id="subsidy" className="py-24 bg-black">
+      {/* <section id="subsidy" className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white mb-8">
@@ -331,7 +330,7 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-24 bg-gray-900">
@@ -406,10 +405,17 @@ const Services = () => {
             Contact us today to discuss your renewable energy requirements and discover how we can help
             you achieve your sustainability and financial goals.
           </p>
-          <button className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center shadow-lg">
-            Get Started Today
+          <a
+                                href="/contact.html"
+                                className="group relative bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg md:rounded-xl font-semibold text-sm sm:text-base hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center shadow-lg transform hover:scale-105"
+                            >
+                                <span className="relative z-10">Get Started Today</span>
+                                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                            </a>
+          {/* <button className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center shadow-lg">
+            
             <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
-          </button>
+          </button> */}
         </div>
       </section>
     </div>

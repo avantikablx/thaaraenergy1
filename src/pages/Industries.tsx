@@ -370,13 +370,12 @@ const Industries = () => {
             you achieve significant cost savings while meeting your sustainability goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <button className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center shadow-lg">
+            <a href="/contact.html" className="bg-white text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center shadow-lg">
               Get Industry-Specific Quote
               <Battery className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
-            </button>
-            <button className="border-2 border-white text-white px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-300">
-              Download Case Studies
-            </button>
+            </a>
+            
+           
           </div>
         </div>
       </section>
