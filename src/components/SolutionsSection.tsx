@@ -69,18 +69,18 @@ const SolutionsSection = () => {
                                     <img
                                         src={image.src}
                                         alt={image.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 will-change-transform"
                                     />
 
                                     {/* Overlay gradient */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
 
                                     {/* Hover tint */}
-                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-90 transition-opacity duration-300"></div>
+                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 will-change-auto"></div>
 
                                     {/* Top Gradient with Title */}
                                     <div className="absolute top-0 left-0 right-0 z-10">
-                                        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 lg:h-36 bg-gradient-to-b from-black via-black/60 to-transparent transition-all duration-500 ease-in-out group-hover:-translate-y-full group-hover:opacity-0"></div>
+                                        <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 lg:h-36 bg-gradient-to-b from-black via-black/60 to-transparent transition-all duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 will-change-transform"></div>
                                         <div className="relative px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4">
                                             <h3
                                                 className="text-white text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold leading-tight"
