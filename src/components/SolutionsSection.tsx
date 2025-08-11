@@ -94,7 +94,7 @@ const SolutionsSection = () => {
                                     {/* Bottom Description and Button */}
                                     <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transition-all duration-300">
                                         <p
-                                            className="text-sm sm:text-base lg:text-lg opacity-0 group-hover:opacity-100 leading-relaxed text-white mb-3 sm:mb-4"
+                                            className="text-sm sm:text-base lg:text-m opacity-0 group-hover:opacity-100 leading-relaxed text-white mb-3 sm:mb-4"
                                             style={{ textShadow: '1px 1px 2px rgb(0, 0, 0)' }}
                                         >
                                             {image.description}
